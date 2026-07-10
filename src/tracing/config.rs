@@ -422,7 +422,7 @@ impl StackSnapshotType {
 ///
 /// This affects things like error messages.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub(crate) enum TraceStyle {
+pub enum TraceStyle {
     /// Parity style tracer
     Parity,
     /// Geth style tracer
@@ -432,7 +432,7 @@ pub(crate) enum TraceStyle {
 
 impl TraceStyle {
     /// Returns true if this is a parity style tracer.
-    pub(crate) const fn is_parity(self) -> bool {
+    pub const fn is_parity(self) -> bool {
         matches!(self, Self::Parity)
     }
 }
