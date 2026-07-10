@@ -1,7 +1,6 @@
 use crate::{
     opcode::immediate_size,
     tracing::{
-        arena::PushTraceKind,
         types::{
             CallKind, CallTraceNode, RecordedMemory, StorageChange, StorageChangeReason,
             TraceMemberOrder,
@@ -26,7 +25,7 @@ use revm::{
 };
 
 mod arena;
-pub use arena::CallTraceArena;
+pub use arena::{CallTraceArena, PushTraceKind};
 
 mod builder;
 pub use builder::{

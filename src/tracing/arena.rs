@@ -58,7 +58,10 @@ impl CallTraceArena {
     /// This appends a new trace to the arena, and also inserts a new entry in the node's parent
     /// node children set if `attach_to_parent` is `true`. E.g. if calls to precompiles should
     /// not be included in the call graph this should be called with [PushTraceKind::PushOnly].
-    pub(crate) fn push_trace(
+    ///
+    /// This is public so external tracers (driven by non-revm interpreters) can build the arena
+    /// directly.
+    pub fn push_trace(
         &mut self,
         mut entry: usize,
         kind: PushTraceKind,
@@ -97,7 +100,7 @@ impl CallTraceArena {
 
 /// How to push a trace into the arena
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub(crate) enum PushTraceKind {
+pub enum PushTraceKind {
     /// This will _only_ push the trace into the arena.
     PushOnly,
     /// This will push the trace into the arena, and also insert a new entry in the node's parent
