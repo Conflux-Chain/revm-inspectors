@@ -816,8 +816,9 @@ pub struct StorageChange {
 pub struct RecordedMemory(pub(crate) Bytes);
 
 impl RecordedMemory {
+    /// Creates a new [`RecordedMemory`] from the given memory bytes.
     #[inline]
-    pub(crate) fn new(mem: &[u8]) -> Self {
+    pub fn new(mem: &[u8]) -> Self {
         if mem.is_empty() {
             return Self(Bytes::new());
         }
